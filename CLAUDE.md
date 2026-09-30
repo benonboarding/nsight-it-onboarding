@@ -6,8 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A single static web page: the Nsight Health IT "New Hire Technology Overview." It walks new hires through setting up their MacBook on day one. There is no build step, package manager, linter, or test suite.
 
-- The whole site is one file: `index (1) (2).html`. The filename has spaces and parentheses, so always quote it in shell commands.
-- To preview it, open the file in a browser, or serve it with `python3 -m http.server` and go to `http://localhost:8000/index%20(1)%20(2).html`.
+- The whole site is one file: `index.html`.
+- To preview it, open the file in a browser, or serve it with `python3 -m http.server` and go to `http://localhost:8000/`.
 
 ## Structure of the HTML file
 
