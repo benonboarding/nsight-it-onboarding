@@ -1427,6 +1427,28 @@
   .hero .hero-where { margin: 14px 0 0; font-size: 17px; line-height: 1.5; color: var(--ink); max-width: none; }
   .hero .hero-where strong { color: var(--navy); }
   @media (max-width: 600px) { .hero .hero-where { font-size: 16px; } }
+
+  /* ── locked, one-step-at-a-time flow ── */
+  .s-lock { display: none; color: #8A9AA8; flex-shrink: 0; margin-top: 12px; }
+  .js .s-card.is-locked .s-lock { display: block; }
+  .js .s-card.is-locked .s-chev { display: none; }
+  .js .s-card.is-locked .s-head { cursor: not-allowed; padding: 10px 0; }
+  .js .s-card.is-locked .s-head:hover .s-title { text-decoration: none; }
+  .js .s-card.is-locked .s-num { width: 38px; height: 38px; font-size: 16px; border: 2px dashed #A9B6C1; color: #8A9AA8; background: var(--mist); margin-left: 4px; }
+  .js .s-card.is-locked .s-title { font-size: 17px; color: #7D8C98; font-weight: 600; }
+  .js .s-card.is-locked .s-desc, .js .s-card.is-locked .s-chips { display: none; }
+  .js .s-card.is-locked::before { top: 50px; left: 22px; }
+  .js .s-card.is-current:not(.is-open) .s-num { background: var(--navy); color: #fff; }
+  .js .finish-card[hidden] { display: none; }
+
+  .ready .ready-go { border: 0; width: 100%; cursor: pointer; font-family: inherit; }
+  .ready .ready-go:disabled { background: #C9D3DB; color: #5E6E7B; cursor: not-allowed; filter: none; }
+  .ready-hint { margin-top: 10px; text-align: center; font-size: 15px; color: var(--ink-soft); font-weight: 600; }
+  .ready-hint[hidden] { display: none; }
+  .resume { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font-size: 15px; color: var(--ink-soft); }
+  .resume select { font: inherit; font-size: 15px; padding: 7px 10px; border: 1px solid var(--rule); border-radius: 8px; background: #fff; color: var(--ink); max-width: 100%; }
+  .resume-go { font: inherit; font-size: 15px; font-weight: 700; padding: 7px 16px; border: 0; border-radius: 8px; background: var(--navy-light); color: var(--navy); cursor: pointer; }
+  .resume select:focus-visible, .resume-go:focus-visible, .ready .ready-go:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
 </style>
 </head>
 <body class="gate-open">
@@ -1521,7 +1543,13 @@
       <li><input type="checkbox" id="ready-4"><label for="ready-4"><strong>Your phone.</strong> You'll need it in Step 9.</label></li>
     </ul>
     <p class="before-tip">Do one step at a time. When you finish a step, click <strong>Done</strong> and the next one opens. Stuck? Click <strong>Get help</strong> any time.</p>
-    <a class="ready-go" href="#step-1">I'm ready. Start Step 1</a>
+    <button type="button" class="ready-go" id="ready-go" disabled>I'm ready. Start Step 1</button>
+    <p class="ready-hint" id="ready-hint" aria-live="polite">Check all 4 boxes to start.</p>
+    <div class="resume">
+      <label for="resume-step">Coming back? Pick up at</label>
+      <select id="resume-step"><option value="1">Step 1: Set up your desk</option><option value="2">Step 2: Plug in your internet cable</option><option value="3">Step 3: Start up your Mac</option><option value="4">Step 4: Sign in and make your password</option><option value="5">Step 5: Let your Mac set itself up</option><option value="6">Step 6: Restart your Mac</option><option value="7">Step 7: Set up your keyboard and mouse</option><option value="8">Step 8: Set up Chrome and Google Drive</option><option value="9">Step 9: Turn on 2-Step Verification</option><option value="10">Step 10: Sign in to Slack</option><option value="11">Step 11: Set up 1Password</option></select>
+      <button type="button" class="resume-go" id="resume-go">Go</button>
+    </div>
   </section>
 
   <!-- PROGRESS -->
@@ -1549,6 +1577,8 @@
           <span class="s-chips"><span class="s-chip">5 min</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-1-body">
         <div class="s-note s-skip"><strong>Didn't pick a monitor?</strong> Just plug in your <strong>Mac's power cable</strong> (the magnetic end snaps into the long port), then click Done.</div>
@@ -1600,6 +1630,8 @@
           <span class="s-chips"><span class="s-chip">2 min</span><span class="s-chip s-chip-star">Required</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-2-body">
         <div class="slideshow" aria-label="Pictures">
@@ -1649,6 +1681,8 @@
           <span class="s-chips"><span class="s-chip">3 min</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-3-body">
         <div class="slideshow" aria-label="Pictures">
@@ -1713,6 +1747,8 @@
           <span class="s-chips"><span class="s-chip">3 min</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-4-body">
         <div class="slideshow" aria-label="Pictures">
@@ -1779,6 +1815,8 @@
           <span class="s-chips"><span class="s-chip">20 min, mostly waiting</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-5-body">
         <div class="slideshow" aria-label="Pictures">
@@ -1839,6 +1877,8 @@
           <span class="s-chips"><span class="s-chip">3 min</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-6-body">
         <div class="slideshow" aria-label="Pictures">
@@ -1908,6 +1948,8 @@
           <span class="s-chips"><span class="s-chip">5 min</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-7-body">
         <div class="s-note s-skip"><strong>Didn't pick a keyboard and mouse?</strong> Skip this step. Just click Done.</div>
@@ -1962,6 +2004,8 @@
           <span class="s-chips"><span class="s-chip">5 min</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-8-body">
         <div class="slideshow" aria-label="Pictures">
@@ -2038,6 +2082,8 @@
           <span class="s-chips"><span class="s-chip">5 min</span><span class="s-chip s-chip-phone">Phone needed</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-9-body">
         <div class="s-first"><strong>Before you start:</strong> On your phone, install <strong>Google Authenticator</strong>: <a href="https://apps.apple.com/app/google-authenticator/id388497605" target="_blank" rel="noopener">iPhone</a> · <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank" rel="noopener">Android</a></div>
@@ -2121,6 +2167,8 @@
           <span class="s-chips"><span class="s-chip">3 min</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-10-body">
         <div class="slideshow" aria-label="Pictures">
@@ -2196,6 +2244,8 @@
           <span class="s-chips"><span class="s-chip">5 min</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
+        <svg class="s-lock" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-11-body">
         <div class="slideshow" aria-label="Pictures">
@@ -2267,7 +2317,7 @@
   </div>
 
   <!-- FINISHED -->
-  <div class="finish-card" id="finish">
+  <div class="finish-card" id="finish" hidden>
     <div class="finish-mark" aria-hidden="true"></div>
     <h2>You're all set</h2>
     <p>On Day 1, join the <strong>Google Meet link in your calendar</strong> at <strong>9 AM EST</strong> on your first Monday. IT will go through everything with you, whether you did these steps or not.</p>
@@ -2384,6 +2434,15 @@
     var cards = [].slice.call(document.querySelectorAll('.s-card'));
     var total = cards.length;
 
+    // One step at a time: steps before `current` are done, `current` is the only open-able
+    // new step, later steps are locked. Progress lives only in the page address (#step-N)
+    // so a refresh keeps your place; nothing is saved to the device.
+    var started = false, current = 0;
+    var finish = document.getElementById('finish');
+    var goBtn = document.getElementById('ready-go');
+    var hint = document.getElementById('ready-hint');
+    var boxes = [].slice.call(document.querySelectorAll('.ready-list input[type="checkbox"]'));
+
     function open(card, scroll) {
       cards.forEach(function (c) {
         var on = c === card;
@@ -2399,30 +2458,56 @@
         target.scrollIntoView({ behavior: 'auto', block: 'start' });
       }
     }
-    function updateProgress() {
-      var done = cards.filter(function (c) { return c.classList.contains('is-done'); }).length;
+    function render() {
+      cards.forEach(function (c, k) {
+        var done = started && k < current, locked = !started || k > current;
+        c.classList.toggle('is-done', done);
+        c.classList.toggle('is-locked', locked);
+        c.classList.toggle('is-current', started && k === current);
+        c.querySelector('.s-head').disabled = locked;
+        c.querySelector('.s-done').textContent = k < current
+          ? '\u2713 Done. Back to Step ' + (Math.min(current, total - 1) + 1)
+          : (k < total - 1 ? 'Done. Next: ' + cards[k + 1].querySelector('.s-title').lastChild.textContent : 'Done. I\u2019m finished');
+      });
+      var done = started ? Math.min(current, total) : 0;
       document.getElementById('progress-count').textContent = done;
       document.getElementById('progress-fill').style.width = (done / total * 100) + '%';
+      finish.hidden = done < total;
+      if (started) {
+        goBtn.disabled = false;
+        goBtn.textContent = done < total ? 'Continue: Step ' + (current + 1) : 'See your finish';
+        hint.hidden = true;
+      } else {
+        var left = boxes.filter(function (b) { return !b.checked; }).length;
+        goBtn.disabled = left > 0;
+        hint.hidden = false;
+        hint.textContent = left ? 'Check ' + (left === boxes.length ? 'all ' + left + ' boxes' : left === 1 ? 'the last box' : 'the other ' + left + ' boxes') + ' to start.' : 'All set. Click the button to start Step 1.';
+      }
+      var hash = !started ? '' : done < total ? '#step-' + (current + 1) : '#done';
+      if (location.hash !== hash) history.replaceState(null, '', hash || location.pathname + location.search);
     }
+    function goCurrent() {
+      if (current < total) open(cards[current], true);
+      else { open(null, false); finish.scrollIntoView({ behavior: 'auto', block: 'center' }); }
+    }
+    function startAt(n) { started = true; current = Math.max(0, Math.min(total, n)); render(); goCurrent(); }
+
+    boxes.forEach(function (b) { b.addEventListener('change', render); });
+    goBtn.addEventListener('click', function () { if (started) goCurrent(); else startAt(0); });
+    document.getElementById('resume-go').addEventListener('click', function () {
+      startAt(parseInt(document.getElementById('resume-step').value, 10) - 1);
+    });
 
     cards.forEach(function (card, i) {
       card.querySelector('.s-head').addEventListener('click', function () {
+        if (card.classList.contains('is-locked')) return;
         var before = card.getBoundingClientRect().top;
         open(card.classList.contains('is-open') ? null : card, false);
         window.scrollBy(0, card.getBoundingClientRect().top - before);
       });
       card.querySelector('.s-done').addEventListener('click', function () {
-        card.classList.add('is-done');
-        updateProgress();
-        var next = cards.slice(i + 1).filter(function (c) { return !c.classList.contains('is-done'); })[0]
-                || cards.filter(function (c) { return !c.classList.contains('is-done'); })[0];
-        if (next) { open(next, true); }
-        else {
-          open(null, false);
-          var fin = document.getElementById('finish');
-          fin.classList.add('is-celebrating');
-          fin.scrollIntoView({ behavior: 'auto', block: 'center' });
-        }
+        if (i === current) { current = i + 1; render(); if (current >= total) finish.classList.add('is-celebrating'); }
+        goCurrent();
       });
 
       // slideshow
@@ -2452,8 +2537,9 @@
       go(0);
     });
 
-    open(cards[0], false);
-    updateProgress();
+    var m = /^#(?:step-(\d+)|(done))$/.exec(location.hash);
+    if (m) { startAt(m[2] ? total : parseInt(m[1], 10) - 1); }
+    else { render(); open(null, false); }
   })();
 </script>
 <script>
@@ -2466,7 +2552,7 @@
       if (!target) return;
       e.preventDefault();
       if (target.tagName === 'DETAILS') target.open = true;
-      if (target.classList.contains('s-card') && !target.classList.contains('is-open')) target.querySelector('.s-head').click();
+      if (target.classList.contains('s-card') && !target.classList.contains('is-open') && !target.classList.contains('is-locked')) target.querySelector('.s-head').click();
       var prev = target.previousElementSibling;
       if (target.classList.contains('s-card') && prev && prev.classList.contains('part-head')) target = prev;
       target.scrollIntoView({ behavior: 'auto', block: 'start' });
