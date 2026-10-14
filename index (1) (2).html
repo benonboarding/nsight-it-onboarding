@@ -1403,6 +1403,11 @@
   @media (max-width: 600px) {
     .slide-dots { display: none; }
   }
+  /* "didn't pick it?" note: decides whether to do the step, so it comes first */
+  .s-skip { background: var(--navy-light); border-left: 4px solid var(--navy); }
+  .ready .kit-group { display: block; margin-top: 12px; font-size: 15px; font-weight: 700; color: var(--ink-soft); }
+  .ready .kit-group + .kit { margin-top: 6px; }
+  .ready .ready-note + .kit-group { margin-top: 10px; }
 </style>
 </head>
 <body class="gate-open">
@@ -1485,8 +1490,8 @@
   <section class="ready" id="ready" aria-labelledby="ready-title">
     <h2 id="ready-title">Before you start, have these nearby</h2>
     <ul class="ready-list">
-      <li><input type="checkbox" id="ready-1"><label for="ready-1"><strong>Everything in your boxes</strong><span class="kit"><span class="kit-chip">MacBook + power cable</span><span class="kit-chip">ASUS monitor + power cable</span><span class="kit-chip">USB-C cable</span><span class="kit-chip">Logitech keyboard + mouse</span><span class="kit-chip">Laptop stand</span><span class="kit-chip">HDMI cable (backup)</span><span class="kit-chip">Anker USB hub (backup)</span></span><span class="ready-note">Something missing? <a href="#reach-it">Tell IT</a></span></label></li>
-      <li><input type="checkbox" id="ready-2"><label for="ready-2"><strong>An internet cable</strong> that reaches your router (recommended)</label></li>
+      <li><input type="checkbox" id="ready-1"><label for="ready-1"><strong>Your equipment</strong><span class="ready-note">You picked your equipment in the new-hire questionnaire, so you may not have all of these. That's OK.</span><span class="kit-group">Everyone gets</span><span class="kit"><span class="kit-chip">MacBook + power cable</span><span class="kit-chip">Internet (Ethernet) cable</span></span><span class="kit-group">Only if you picked it</span><span class="kit"><span class="kit-chip">ASUS monitor + power cable + USB-C cable</span><span class="kit-chip">Logitech keyboard + mouse</span><span class="kit-chip">Laptop stand</span><span class="kit-chip">HDMI cable</span><span class="kit-chip">Anker USB hub</span></span><span class="ready-note">Something missing? <a href="#reach-it">Tell IT</a></span></label></li>
+      <li><input type="checkbox" id="ready-2"><label for="ready-2"><strong>A spot near your router</strong>, so the internet cable reaches</label></li>
       <li><input type="checkbox" id="ready-3"><label for="ready-3"><strong>Your Nsight email and temporary password</strong> from your welcome email</label></li>
       <li><input type="checkbox" id="ready-4"><label for="ready-4"><strong>Your phone.</strong> You'll need it in Step 9.</label></li>
     </ul>
@@ -1506,7 +1511,7 @@
 
     <div class="part-head">
       <h2 class="part-title">Hardware</h2>
-      <p class="part-desc">2 steps, about 7 minutes. Plug everything in first.</p>
+      <p class="part-desc">2 steps, about 7 minutes. Plug everything in first. Skip anything you didn&#x27;t pick in your new-hire questionnaire.</p>
     </div>
 
     <!-- STEP 1 -->
@@ -1521,6 +1526,7 @@
         <span class="s-chev" aria-hidden="true"></span>
       </button>
       <div class="s-body" id="step-1-body">
+        <div class="s-note s-skip"><strong>Didn't pick a monitor?</strong> Just plug in your <strong>Mac's power cable</strong> (the magnetic end snaps into the long port), then click Done.</div>
         <div class="slideshow" aria-label="Pictures">
           <div class="slides-stage">
           <figure class="slide">
@@ -1565,8 +1571,8 @@
         <span class="s-num" aria-hidden="true">2</span>
         <span class="s-info">
           <span class="s-title"><span class="sr-only">Step 2: </span>Plug in your internet cable</span>
-          <span class="s-desc">Wired internet is much steadier than Wi-Fi.</span>
-          <span class="s-chips"><span class="s-chip">2 min</span><span class="s-chip s-chip-star">Recommended</span></span>
+          <span class="s-desc">Everyone gets one. Wired internet is much steadier than Wi-Fi.</span>
+          <span class="s-chips"><span class="s-chip">2 min</span><span class="s-chip s-chip-star">Required</span></span>
         </span>
         <span class="s-chev" aria-hidden="true"></span>
       </button>
@@ -1597,7 +1603,7 @@
           <li><span>Plug the other end into <strong><span class="pn pn3">3</span></strong> on the back of the monitor (the square port). Push until it clicks.</span></li>
           <li><span>That's it. Your Mac now uses the cable for internet.</span></li>
         </ol>
-        <div class="s-note s-warn"><strong>Heads up:</strong> This only works when your Mac is connected to the monitor with the USB-C cable. No cable, or router too far away? Wi-Fi is fine. You&#x27;ll connect in Step 3.</div>
+        <div class="s-note s-warn"><strong>Heads up:</strong> This only works when your Mac is connected to the monitor with the USB-C cable. Router too far away, or no monitor? Use Wi-Fi for now (you&#x27;ll connect in Step 3) and tell IT.</div>
         <div class="s-note s-tip">Training calls freeze when Wi-Fi drops. A cable stops that, so it&#x27;s worth it.</div>
         <button type="button" class="s-done">Done. Next: Start up your Mac</button>
       </div>
@@ -1879,6 +1885,7 @@
         <span class="s-chev" aria-hidden="true"></span>
       </button>
       <div class="s-body" id="step-7-body">
+        <div class="s-note s-skip"><strong>Didn't pick a keyboard and mouse?</strong> Skip this step. Just click Done.</div>
         <div class="slideshow" aria-label="Pictures">
           <div class="slides-stage">
           <figure class="slide">
@@ -2434,6 +2441,8 @@
       e.preventDefault();
       if (target.tagName === 'DETAILS') target.open = true;
       if (target.classList.contains('s-card') && !target.classList.contains('is-open')) target.querySelector('.s-head').click();
+      var prev = target.previousElementSibling;
+      if (target.classList.contains('s-card') && prev && prev.classList.contains('part-head')) target = prev;
       target.scrollIntoView({ behavior: 'auto', block: 'start' });
     });
   })();
