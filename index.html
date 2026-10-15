@@ -1471,6 +1471,9 @@
     .backup { grid-template-columns: 1fr 1fr; }
     .backup-text { grid-column: 1 / -1; }
   }
+  /* picture height can be reduced per step (set by fit() in the page script) so Next stays on screen */
+  .slide img { height: var(--shot-h, min(380px, 62vw)); }
+  .s-card { scroll-margin-top: calc(var(--header-h, 84px) + 58px); }
 </style>
 </head>
 <body class="gate-open">
@@ -1611,7 +1614,6 @@
         <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-1-body">
-        <div class="s-note s-skip"><strong>Didn't pick a monitor?</strong> Just plug in your <strong>Mac's power cable</strong> (the magnetic end snaps into the long port), then click Done.</div>
         <div class="slideshow" aria-label="Pictures">
           <div class="slides-stage">
           <figure class="slide">
@@ -1637,6 +1639,7 @@
             <button type="button" class="slide-btn" data-dir="1">Next</button>
           </div>
         </div>
+        <div class="s-note s-skip"><strong>Didn't pick a monitor?</strong> Just plug in your <strong>Mac's power cable</strong> (the magnetic end snaps into the long port), then click Done.</div>
         <ol class="s-do">
           <li><span>Put your Mac on the <strong>stand</strong>.</span></li>
           <li><span>Plug the <strong>monitor's power cable</strong> into the wall and the monitor. Press the monitor's <strong>power button</strong>.</span></li>
@@ -1982,7 +1985,6 @@
         <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-7-body">
-        <div class="s-note s-skip"><strong>Didn't pick a keyboard and mouse?</strong> Skip this step. Just click Done.</div>
         <div class="slideshow" aria-label="Pictures">
           <div class="slides-stage">
           <figure class="slide">
@@ -2008,6 +2010,7 @@
             <button type="button" class="slide-btn" data-dir="1">Next</button>
           </div>
         </div>
+        <div class="s-note s-skip"><strong>Didn't pick a keyboard and mouse?</strong> Skip this step. Just click Done.</div>
         <ol class="s-do">
           <li><span>Find the tiny <strong>USB receiver</strong>. It's tucked into the side of the keyboard box. Don't throw the box away until you have it!</span></li>
           <li><span>Plug the receiver into <strong><span class="pn pn2">2</span></strong> on the back of the monitor (the rectangular USB port).</span></li>
@@ -2116,7 +2119,6 @@
         <span class="sr-only s-lock-text">Locked. Finish the step before it first.</span>
       </button>
       <div class="s-body" id="step-9-body">
-        <div class="s-first"><strong>Before you start:</strong> On your phone, install <strong>Google Authenticator</strong>: <a href="https://apps.apple.com/app/google-authenticator/id388497605" target="_blank" rel="noopener">iPhone</a> · <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank" rel="noopener">Android</a></div>
         <div class="slideshow" aria-label="Pictures">
           <div class="slides-stage">
           <figure class="slide">
@@ -2174,6 +2176,7 @@
             <button type="button" class="slide-btn" data-dir="1">Next</button>
           </div>
         </div>
+        <div class="s-first"><strong>Before you start:</strong> On your phone, install <strong>Google Authenticator</strong>: <a href="https://apps.apple.com/app/google-authenticator/id388497605" target="_blank" rel="noopener">iPhone</a> · <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank" rel="noopener">Android</a></div>
         <ol class="s-do">
           <li><span>In Chrome, click your <strong>profile picture</strong> (top-right), then <strong>Manage your Google Account</strong>.</span></li>
           <li><span>Click <strong>Security &amp; sign-in</strong>, then <strong>2-Step Verification</strong>.</span></li>
@@ -2481,13 +2484,26 @@
       });
       if (card) {
         card.classList.remove('just-opened'); void card.offsetWidth; card.classList.add('just-opened');
+        fit(card);
       }
-      if (card && scroll) {
-        var prev = card.previousElementSibling;
-        var target = prev && prev.classList.contains('part-head') ? prev : card;
-        target.scrollIntoView({ behavior: 'auto', block: 'start' });
-      }
+      if (card && scroll) card.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
+    // Shrink the pictures just enough that the picture, its caption and Back/Next all fit on
+    // screen when the step is scrolled to the top (big screens keep the full size).
+    function fit(card) {
+      var show = card && card.querySelector('.slideshow');
+      if (!show) return;
+      var img = show.querySelector('.slide img');
+      var bottom = (show.querySelector('.slide-nav') || show).getBoundingClientRect().bottom;
+      card.style.removeProperty('--shot-h');
+      var full = img.getBoundingClientRect().height;
+      bottom = (show.querySelector('.slide-nav') || show).getBoundingClientRect().bottom;
+      var overhead = bottom - card.getBoundingClientRect().top - full;
+      var offset = parseFloat(getComputedStyle(card).scrollMarginTop) || 0;
+      var room = Math.floor(window.innerHeight - offset - overhead - 16);
+      if (room < full) card.style.setProperty('--shot-h', Math.max(170, room) + 'px');
+    }
+    window.addEventListener('resize', function () { var c = document.querySelector('.s-card.is-open'); if (c) fit(c); });
     function render() {
       cards.forEach(function (c, k) {
         var done = started && k < current, locked = !started || k > current;
