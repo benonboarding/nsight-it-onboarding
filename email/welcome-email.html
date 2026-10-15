@@ -8,11 +8,11 @@
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark">
-<title>Welcome to Nsight Health</title>
+<title>Your Mac is ready</title>
 <!--
   Nsight Health · New-hire welcome email
   Fill these before sending:  [FIRST_NAME]  [WORK_EMAIL]  [TEMP_PASSWORD]  [MACBOOK_SERIAL]
-  Built for email clients: tables + inline styles, Outlook (VML) buttons, mobile and dark mode.
+  Images load from https://nsight-onboarding.netlify.app/email/
 -->
 <!--[if mso]>
 <noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
@@ -26,273 +26,216 @@
   table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
   img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
   a { text-decoration: none; }
-  /* stop phones turning the email/serial into blue links */
   .cred a, a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font: inherit !important; }
+  .logo-dark { display: none; max-height: 0; overflow: hidden; mso-hide: all; }
 
   @media only screen and (max-width: 620px) {
     .container { width: 100% !important; }
-    .px { padding-left: 20px !important; padding-right: 20px !important; }
-    .h1 { font-size: 27px !important; line-height: 33px !important; }
-    .cred { font-size: 17px !important; }
-    .full { display: block !important; width: 100% !important; }
-    .full a { display: block !important; }
-    .gap { padding-top: 12px !important; padding-left: 0 !important; text-align: left !important; }
-    .peek { padding: 26px 16px 24px !important; }
-    .peek-btn { font-size: 15px !important; padding: 14px 18px !important; }
+    .px { padding-left: 22px !important; padding-right: 22px !important; }
+    .card-px { padding-left: 20px !important; padding-right: 20px !important; }
+    .h1 { font-size: 28px !important; line-height: 34px !important; }
+    .row-label, .row-value { display: block !important; width: 100% !important; box-sizing: border-box !important; text-align: left !important; }
+    .row-label { padding-bottom: 2px !important; border-bottom: 0 !important; }
+    .row-value { padding-top: 0 !important; }
+    .btn a { display: block !important; text-align: center !important; }
+    .hide-sm { display: none !important; }
   }
 
-  /* dark mode (Apple Mail, iOS Mail, Outlook for Mac) */
+  /* dark mode: Apple Mail, iOS Mail, Outlook for Mac */
   @media (prefers-color-scheme: dark) {
-    .bg-page { background-color: #0F1A22 !important; }
-    .bg-card { background-color: #16242F !important; }
-    .bg-soft { background-color: #1D3140 !important; }
-    .bg-tint { background-color: #173A3A !important; }
-    .t-ink   { color: #E8EEF2 !important; }
-    .t-soft  { color: #AFC0CB !important; }
-    .t-navy  { color: #A9D3EE !important; }
+    .bg-page { background-color: #0E171E !important; }
+    .bg-card { background-color: #15222C !important; }
+    .bg-soft { background-color: #1C2D3A !important; }
+    .t-ink   { color: #E9EFF3 !important; }
+    .t-soft  { color: #A7B8C4 !important; }
+    .t-navy  { color: #B4DBF2 !important; }
     .t-teal  { color: #7FCFC9 !important; }
-    .bd      { border-color: #2B4354 !important; }
+    .bd      { border-color: #2A3F4E !important; }
+    .logo-light { display: none !important; max-height: 0 !important; }
+    .logo-dark  { display: block !important; max-height: none !important; }
   }
-  /* dark mode (Outlook.com) */
-  [data-ogsc] .bg-page { background-color: #0F1A22 !important; }
-  [data-ogsc] .bg-card { background-color: #16242F !important; }
-  [data-ogsc] .bg-soft { background-color: #1D3140 !important; }
-  [data-ogsc] .bg-tint { background-color: #173A3A !important; }
-  [data-ogsc] .t-ink   { color: #E8EEF2 !important; }
-  [data-ogsc] .t-soft  { color: #AFC0CB !important; }
-  [data-ogsc] .t-navy  { color: #A9D3EE !important; }
+  [data-ogsc] .bg-page { background-color: #0E171E !important; }
+  [data-ogsc] .bg-card { background-color: #15222C !important; }
+  [data-ogsc] .bg-soft { background-color: #1C2D3A !important; }
+  [data-ogsc] .t-ink   { color: #E9EFF3 !important; }
+  [data-ogsc] .t-soft  { color: #A7B8C4 !important; }
+  [data-ogsc] .t-navy  { color: #B4DBF2 !important; }
   [data-ogsc] .t-teal  { color: #7FCFC9 !important; }
 </style>
 </head>
 <body class="bg-page" style="margin:0; padding:0; background-color:#F2F5F8;">
-<div role="article" aria-roledescription="email" aria-label="Welcome to Nsight Health" lang="en" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+<div role="article" aria-roledescription="email" aria-label="Your Mac is ready" lang="en" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
 
   <!-- Inbox preview text (hidden) -->
   <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#F2F5F8; opacity:0;">
-    Your sign-in info, what Day 1 looks like, and the fastest ways to reach IT.
+    Your login is inside, plus your step-by-step guide to setting up your Mac.
     &#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;
   </div>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="bg-page" style="background-color:#F2F5F8;">
     <tr>
-      <td align="center" style="padding:32px 12px 40px;">
+      <td align="center" style="padding:36px 12px 44px;">
 
         <!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
         <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
 
-          <!-- ============ HEADER ============ -->
+          <!-- ============ CARD ============ -->
           <tr>
-            <td class="px" style="background-color:#1E4D6B; border-radius:16px 16px 0 0; border-bottom:3px solid #5BADA8; padding:22px 32px;">
+            <td class="bg-card bd" style="background-color:#FFFFFF; border:1px solid #DDE5EB; border-radius:20px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td valign="middle">
-                    <img src="https://nsight-onboarding.netlify.app/email/nsight-logo-white.png" width="211" height="40" alt="Nsight Health"
-                         style="display:block; width:211px; height:40px; color:#FFFFFF; font-family:Arial,sans-serif; font-size:22px; font-weight:700;">
-                  </td>
-                  <td align="right" valign="middle" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:12px; line-height:16px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#A8DBD7;">
-                    IT&nbsp;Support
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
 
-          <!-- ============ WELCOME ============ -->
-          <tr>
-            <td class="bg-card px bd" style="background-color:#FFFFFF; border-left:1px solid #D5DEE5; border-right:1px solid #D5DEE5; padding:36px 32px 0;">
-              <h1 class="h1 t-navy" style="margin:0 0 10px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:30px; line-height:37px; font-weight:800; letter-spacing:-0.5px; color:#1E4D6B;">
-                Welcome to Nsight, [FIRST_NAME]! &#128075;
-              </h1>
-              <p class="t-soft" style="margin:0 0 22px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:17px; line-height:26px; color:#4A6070;">
-                Your MacBook and accounts are ready. Everything you need is in this email.
-              </p>
+                <!-- logo -->
+                <tr>
+                  <td class="px" style="padding:30px 40px 0;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td valign="middle">
+                          <img class="logo-light" src="https://nsight-onboarding.netlify.app/email/nsight-logo-color.png" width="158" height="30" alt="Nsight Health"
+                               style="display:block; width:158px; height:30px; color:#1E4D6B; font-family:Arial,sans-serif; font-size:18px; font-weight:700;">
+                          <!--[if !mso]><!-->
+                          <img class="logo-dark" src="https://nsight-onboarding.netlify.app/email/nsight-logo-white.png" width="158" height="30" alt="Nsight Health"
+                               style="width:158px; height:30px; color:#FFFFFF; font-family:Arial,sans-serif; font-size:18px; font-weight:700;">
+                          <!--<![endif]-->
+                        </td>
+                        <td align="right" valign="middle" class="t-soft" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:18px; font-weight:600; color:#6A7F8E;">
+                          IT Support
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
 
-              <!-- the short version -->
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <!-- welcome -->
                 <tr>
-                  <td class="bg-tint t-ink" style="background-color:#EAF5F4; border-left:4px solid #5BADA8; border-radius:0 10px 10px 0; padding:14px 18px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#172B3A;">
-                    <strong>The short version:</strong> keep this email. You'll use the sign-in info below on Day&nbsp;1.
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- ============ 1. SIGN-IN INFO ============ -->
-          <tr>
-            <td class="bg-card px bd" style="background-color:#FFFFFF; border-left:1px solid #D5DEE5; border-right:1px solid #D5DEE5; padding:32px 32px 0;">
-              <h2 class="t-teal" style="margin:0 0 12px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:16px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#2B7F7A;">
-                &#128272;&nbsp; Your sign-in info
-              </h2>
-
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="bd" style="border:1px solid #D5DEE5; border-radius:12px; border-collapse:separate;">
-                <tr>
-                  <td class="bd" style="padding:14px 18px; border-bottom:1px solid #E4EBF0;">
-                    <div class="t-soft" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:18px; color:#4A6070; padding-bottom:4px;">Work email</div>
-                    <div class="cred t-ink" style="font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace; font-size:18px; line-height:26px; font-weight:700; color:#172B3A; word-break:break-all;">[WORK_EMAIL]</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="bd" style="padding:14px 18px; border-bottom:1px solid #E4EBF0;">
-                    <div class="t-soft" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:18px; color:#4A6070; padding-bottom:4px;">Temporary password</div>
-                    <div class="cred t-ink" style="font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace; font-size:18px; line-height:26px; font-weight:700; color:#172B3A; word-break:break-all;">[TEMP_PASSWORD]</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:14px 18px;">
-                    <div class="t-soft" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:18px; color:#4A6070; padding-bottom:4px;">MacBook serial number</div>
-                    <div class="cred t-ink" style="font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace; font-size:18px; line-height:26px; font-weight:700; color:#172B3A; word-break:break-all;">[MACBOOK_SERIAL]</div>
-                  </td>
-                </tr>
-              </table>
-
-              <!-- what to know -->
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:14px;">
-                <tr>
-                  <td width="28" valign="top" style="padding:4px 0; font-size:15px; line-height:22px;">&#128273;</td>
-                  <td class="t-ink" style="padding:4px 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#172B3A;">You'll <strong>make your own password</strong> the first time you sign in.</td>
-                </tr>
-                <tr>
-                  <td width="28" valign="top" style="padding:4px 0; font-size:15px; line-height:22px;">&#128187;</td>
-                  <td class="t-ink" style="padding:4px 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#172B3A;">The serial number is on the <strong>bottom of your Mac</strong>, so you can check it's yours.</td>
-                </tr>
-                <tr>
-                  <td width="28" valign="top" style="padding:4px 0; font-size:15px; line-height:22px;">&#128274;</td>
-                  <td class="t-ink" style="padding:4px 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#172B3A;">This info is just for you. <strong>Please don't forward this email.</strong></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- ============ 2. DAY 1 ============ -->
-          <tr>
-            <td class="bg-card px bd" style="background-color:#FFFFFF; border-left:1px solid #D5DEE5; border-right:1px solid #D5DEE5; padding:34px 32px 0;">
-              <h2 class="t-teal" style="margin:0 0 8px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:16px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#2B7F7A;">
-                &#128197;&nbsp; What Day 1 looks like
-              </h2>
-              <p class="t-soft" style="margin:0 0 14px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#4A6070;">
-                IT walks you through every step during your paid orientation. Here's the plan:
-              </p>
-
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td width="44" valign="top" style="padding:8px 0;">
-                    <div style="width:32px; height:32px; border-radius:16px; background-color:#1E4D6B; color:#FFFFFF; text-align:center; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:32px; font-weight:800;">1</div>
-                  </td>
-                  <td valign="top" class="t-ink" style="padding:8px 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#172B3A;">
-                    <strong style="font-size:16px;">Set up your desk</strong><br>
-                    <span class="t-soft" style="color:#4A6070;">Plug your Mac into the monitor and the internet cable.</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="44" valign="top" style="padding:8px 0;">
-                    <div style="width:32px; height:32px; border-radius:16px; background-color:#1E4D6B; color:#FFFFFF; text-align:center; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:32px; font-weight:800;">2</div>
-                  </td>
-                  <td valign="top" class="t-ink" style="padding:8px 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#172B3A;">
-                    <strong style="font-size:16px;">Start your Mac and sign in</strong><br>
-                    <span class="t-soft" style="color:#4A6070;">Use the sign-in info above.</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="44" valign="top" style="padding:8px 0;">
-                    <div style="width:32px; height:32px; border-radius:16px; background-color:#1E4D6B; color:#FFFFFF; text-align:center; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:32px; font-weight:800;">3</div>
-                  </td>
-                  <td valign="top" class="t-ink" style="padding:8px 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#172B3A;">
-                    <strong style="font-size:16px;">Set up your work apps</strong><br>
-                    <span class="t-soft" style="color:#4A6070;">Chrome, Google Drive, Slack and 1Password.</span>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- ============ 3. SNEAK PEEK (optional) ============ -->
-          <tr>
-            <td class="bg-card px bd" style="background-color:#FFFFFF; border-left:1px solid #D5DEE5; border-right:1px solid #D5DEE5; padding:26px 32px 0;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#1E4D6B; border-radius:16px;">
-                <tr>
-                  <td align="center" class="peek" style="padding:28px 26px 26px;">
-                    <div style="display:inline-block; background-color:#2E6585; color:#CDE8E6; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:11px; line-height:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:5px 10px; border-radius:20px;">Optional</div>
-                    <h2 style="margin:12px 0 8px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:22px; line-height:28px; font-weight:800; color:#FFFFFF;">Want a sneak peek?</h2>
-                    <p style="margin:0 0 20px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#D5E5EE;">
-                      See each step with pictures, at your own pace.<br>Completely optional.
+                  <td class="px" style="padding:40px 40px 0;">
+                    <p class="t-teal" style="margin:0 0 10px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:14px; line-height:20px; font-weight:700; color:#2B7F7A;">
+                      Welcome to Nsight Health
                     </p>
-                    <!-- button -->
-                    <!--[if mso]>
-                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://nsight-onboarding.netlify.app" style="height:50px; v-text-anchor:middle; width:300px;" arcsize="50%" stroke="f" fillcolor="#5BADA8">
-                      <w:anchorlock/>
-                      <center style="color:#0E2A3B; font-family:'Segoe UI',Arial,sans-serif; font-size:16px; font-weight:bold;">View the Technology Overview</center>
-                    </v:roundrect>
-                    <![endif]-->
-                    <!--[if !mso]><!-->
-                    <a href="https://nsight-onboarding.netlify.app" target="_blank" class="peek-btn"
-                       style="display:inline-block; background-color:#5BADA8; color:#0E2A3B; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:20px; font-weight:800; text-decoration:none; padding:15px 28px; border-radius:25px;">
-                      View the Technology Overview &rarr;
-                    </a>
-                    <!--<![endif]-->
-                    <p style="margin:14px 0 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:18px; color:#A8DBD7;">
-                      nsight-onboarding.netlify.app
+                    <h1 class="h1 t-navy" style="margin:0 0 12px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:34px; line-height:40px; font-weight:800; letter-spacing:-0.8px; color:#16384F;">
+                      Your Mac is ready, [FIRST_NAME].
+                    </h1>
+                    <p class="t-soft" style="margin:0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:17px; line-height:26px; color:#4A6070;">
+                      Below is your login, and right under it, the guide that shows you how to set up your Mac.
                     </p>
                   </td>
                 </tr>
-              </table>
-            </td>
-          </tr>
 
-          <!-- ============ 4. HELP ============ -->
-          <tr>
-            <td class="bg-card px bd" style="background-color:#FFFFFF; border-left:1px solid #D5DEE5; border-right:1px solid #D5DEE5; padding:34px 32px 0;">
-              <h2 class="t-teal" style="margin:0 0 8px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:16px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#2B7F7A;">
-                &#128172;&nbsp; Questions? The fastest ways to reach IT
-              </h2>
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px;">
+                <!-- 1 · your login -->
                 <tr>
-                  <td class="full" valign="middle" width="1" style="white-space:nowrap;">
-                    <!--[if mso]>
-                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://forms.monday.com/forms/410251ce912e1d2cf7c3b54e0beab5c8?r=use1" style="height:46px; v-text-anchor:middle; width:220px;" arcsize="50%" stroke="f" fillcolor="#1E4D6B">
-                      <w:anchorlock/>
-                      <center style="color:#FFFFFF; font-family:'Segoe UI',Arial,sans-serif; font-size:15px; font-weight:bold;">Submit an IT ticket</center>
-                    </v:roundrect>
-                    <![endif]-->
-                    <!--[if !mso]><!-->
-                    <a href="https://forms.monday.com/forms/410251ce912e1d2cf7c3b54e0beab5c8?r=use1" target="_blank"
-                       style="display:inline-block; background-color:#1E4D6B; color:#FFFFFF; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:20px; font-weight:800; text-decoration:none; padding:13px 24px; border-radius:23px; text-align:center;">
-                      Submit an IT ticket
-                    </a>
-                    <!--<![endif]-->
-                  </td>
-                  <td class="full gap t-ink" valign="middle" style="padding-left:18px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#172B3A;">
-                    or email <a href="mailto:it-support@nsightcare.com" class="t-navy" style="color:#1E4D6B; font-weight:700; text-decoration:underline;">it-support@nsightcare.com</a>
+                  <td class="px" style="padding:34px 40px 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="26" height="26" align="center" valign="middle" style="width:26px; height:26px; border-radius:13px; background-color:#1E4D6B; color:#FFFFFF; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:26px; font-weight:800;">1</td>
+                        <td class="t-ink" style="padding-left:10px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:22px; font-weight:800; color:#172B3A;">Your login</td>
+                      </tr>
+                    </table>
+
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="bg-soft" style="margin-top:14px; background-color:#F3F6F9; border-radius:14px;">
+                      <tr>
+                        <td class="row-label t-soft bd" width="40%" style="padding:16px 20px; border-bottom:1px solid #E1E8EE; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:14px; line-height:20px; color:#4A6070;">Work email</td>
+                        <td class="row-value cred t-ink bd" style="padding:16px 20px; border-bottom:1px solid #E1E8EE; text-align:right; font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace; font-size:16px; line-height:22px; font-weight:700; color:#172B3A; word-break:break-all;">[WORK_EMAIL]</td>
+                      </tr>
+                      <tr>
+                        <td class="row-label t-soft bd" width="40%" style="padding:16px 20px; border-bottom:1px solid #E1E8EE; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:14px; line-height:20px; color:#4A6070;">Temporary password</td>
+                        <td class="row-value cred t-ink bd" style="padding:16px 20px; border-bottom:1px solid #E1E8EE; text-align:right; font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace; font-size:16px; line-height:22px; font-weight:700; color:#172B3A; word-break:break-all;">[TEMP_PASSWORD]</td>
+                      </tr>
+                      <tr>
+                        <td class="row-label t-soft" width="40%" style="padding:16px 20px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:14px; line-height:20px; color:#4A6070;">MacBook serial</td>
+                        <td class="row-value cred t-ink" style="padding:16px 20px; text-align:right; font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace; font-size:16px; line-height:22px; font-weight:700; color:#172B3A; word-break:break-all;">[MACBOOK_SERIAL]</td>
+                      </tr>
+                    </table>
+                    <p class="t-soft" style="margin:12px 0 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:#5A6E7D;">
+                      You'll create your own password the first time you sign in. This login is just for you, so please don't forward this email.
+                    </p>
                   </td>
                 </tr>
-              </table>
-              <p class="t-soft" style="margin:14px 0 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:14px; line-height:21px; color:#4A6070;">
-                On Day 1 you can also ask in Slack: <strong class="t-ink" style="color:#172B3A;">#ask-it</strong>
-              </p>
-            </td>
-          </tr>
 
-          <!-- ============ SIGN-OFF ============ -->
-          <tr>
-            <td class="bg-card px bd" style="background-color:#FFFFFF; border-left:1px solid #D5DEE5; border-right:1px solid #D5DEE5; border-bottom:1px solid #D5DEE5; border-radius:0 0 16px 16px; padding:30px 32px 32px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr><td class="bd" style="border-top:1px solid #E4EBF0; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr>
+                <!-- 2 · set up your Mac -->
+                <tr>
+                  <td class="px" style="padding:34px 40px 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="26" height="26" align="center" valign="middle" style="width:26px; height:26px; border-radius:13px; background-color:#1E4D6B; color:#FFFFFF; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:26px; font-weight:800;">2</td>
+                        <td class="t-ink" style="padding-left:10px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:22px; font-weight:800; color:#172B3A;">Set up your Mac</td>
+                      </tr>
+                    </table>
+
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:14px; background-color:#1E4D6B; background-image:linear-gradient(145deg,#1B4560 0%,#1E4D6B 55%,#2A6A80 100%); border-radius:18px;">
+                      <tr>
+                        <td class="card-px" style="padding:30px 30px 28px;">
+                          <h2 style="margin:0 0 8px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:24px; line-height:30px; font-weight:800; letter-spacing:-0.4px; color:#FFFFFF;">
+                            Your setup guide is ready
+                          </h2>
+                          <p style="margin:0 0 16px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#D3E4EE;">
+                            We made a guide just for your new Mac. It shows every click with a picture, from plugging in your monitor to signing in to Slack.
+                          </p>
+
+                          <!-- quick facts -->
+                          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 20px;">
+                            <tr>
+                              <td style="padding:0 8px 8px 0;"><span style="display:inline-block; background-color:#2C6382; color:#FFFFFF; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:18px; font-weight:700; padding:6px 12px; border-radius:8px;">11&nbsp;short&nbsp;steps</span></td>
+                              <td style="padding:0 8px 8px 0;"><span style="display:inline-block; background-color:#2C6382; color:#FFFFFF; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:18px; font-weight:700; padding:6px 12px; border-radius:8px;">About&nbsp;1&nbsp;hour</span></td>
+                              <td class="hide-sm" style="padding:0 0 8px 0;"><span style="display:inline-block; background-color:#2C6382; color:#FFFFFF; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:18px; font-weight:700; padding:6px 12px; border-radius:8px;">A&nbsp;picture&nbsp;for&nbsp;every&nbsp;click</span></td>
+                            </tr>
+                          </table>
+
+                          <!-- preview of the guide -->
+                          <a href="https://nsight-onboarding.netlify.app" target="_blank" style="display:block; text-decoration:none;">
+                            <img src="https://nsight-onboarding.netlify.app/email/guide-preview.jpg" width="478" alt="Preview of your Mac setup guide: Let's set up your Nsight Mac."
+                                 style="display:block; width:100%; max-width:478px; height:auto; border-radius:12px; border:1px solid #3B7593; color:#D3E4EE; font-family:Arial,sans-serif; font-size:14px;">
+                          </a>
+
+                          <!-- button -->
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:22px;">
+                            <tr>
+                              <td class="btn" align="left">
+                                <!--[if mso]>
+                                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://nsight-onboarding.netlify.app" style="height:52px; v-text-anchor:middle; width:260px;" arcsize="24%" stroke="f" fillcolor="#FFFFFF">
+                                  <w:anchorlock/>
+                                  <center style="color:#16384F; font-family:'Segoe UI',Arial,sans-serif; font-size:16px; font-weight:bold;">Open my setup guide &rarr;</center>
+                                </v:roundrect>
+                                <![endif]-->
+                                <!--[if !mso]><!-->
+                                <a href="https://nsight-onboarding.netlify.app" target="_blank"
+                                   style="display:inline-block; background-color:#FFFFFF; color:#16384F; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:20px; font-weight:800; text-decoration:none; padding:16px 28px; border-radius:12px;">
+                                  Open my setup guide &rarr;
+                                </a>
+                                <!--<![endif]-->
+                              </td>
+                            </tr>
+                          </table>
+                          <p style="margin:12px 0 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:18px; color:#9FCFD0;">
+                            nsight-onboarding.netlify.app
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- help + sign-off -->
+                <tr>
+                  <td class="px" style="padding:30px 40px 36px;">
+                    <p class="t-ink" style="margin:0 0 18px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#172B3A;">
+                      Need a hand? <a href="https://forms.monday.com/forms/410251ce912e1d2cf7c3b54e0beab5c8?r=use1" target="_blank" class="t-navy" style="color:#1E4D6B; font-weight:700; text-decoration:underline;">Submit an IT ticket</a> or email <a href="mailto:it-support@nsightcare.com" class="t-navy" style="color:#1E4D6B; font-weight:700; text-decoration:underline; white-space:nowrap;">it-support@nsightcare.com</a>.
+                    </p>
+                    <p class="t-soft" style="margin:0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#4A6070;">
+                      See you soon,<br><strong class="t-ink" style="color:#172B3A;">Nsight IT Support</strong>
+                    </p>
+                  </td>
+                </tr>
+
               </table>
-              <p class="t-ink" style="margin:22px 0 2px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#172B3A;">See you soon!</p>
-              <p class="t-navy" style="margin:0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; font-weight:800; color:#1E4D6B;">IT Support &middot; Nsight Health</p>
-              <p style="margin:2px 0 0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:14px; line-height:20px;">
-                <a href="mailto:it-support@nsightcare.com" class="t-teal" style="color:#2B7F7A; text-decoration:none;">it-support@nsightcare.com</a>
-              </p>
             </td>
           </tr>
 
           <!-- ============ FOOTER (legal text kept word for word) ============ -->
           <tr>
-            <td class="px" style="padding:24px 32px 0;">
-              <p class="t-soft" style="margin:0 0 10px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:#56697A;">
-                This email contains personal login credentials. Do not forward, share, or screenshot this message. If you received this in error, contact <a href="mailto:it-support@nsightcare.com" class="t-soft" style="color:#56697A; text-decoration:underline;">it-support@nsightcare.com</a> and delete it immediately.
+            <td class="px" style="padding:26px 40px 0;">
+              <p class="t-soft" style="margin:0 0 10px; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:#5A6E7D;">
+                This email contains personal login credentials. Do not forward, share, or screenshot this message. If you received this in error, contact <a href="mailto:it-support@nsightcare.com" class="t-soft" style="color:#5A6E7D; text-decoration:underline; white-space:nowrap;">it-support@nsightcare.com</a> and delete it immediately.
               </p>
-              <p class="t-soft" style="margin:0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:#56697A;">
+              <p class="t-soft" style="margin:0; font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:#5A6E7D;">
                 Any setup steps referenced in this email or linked materials are provided for informational purposes and will be completed during your scheduled, paid orientation. Reviewing them beforehand is entirely voluntary, is not required or expected, and is not a condition of employment. Nsight Health compensates all work performed in accordance with applicable federal, state, and local laws.
               </p>
             </td>
